@@ -29,6 +29,22 @@ The goals / steps of this project are the following:
 [image8]: ./examples/placeholder.png "Traffic Sign 5"
 [image8_1]: ./output_8_1.png "Training Label Distribution"
 [image12_0]: ./output_12_0.png "Gray image"
+[image11]: ./new_signs/1.png "Visualization"
+[image12]: ./new_signs/2.png "Grayscaling"
+[image13]: ./new_signs/3.png "Random Noise"
+[image14]: ./new_signs/4.png "Traffic Sign 1"
+[image15]: ./new_signs/5.png "Traffic Sign 2"
+[image16]: ./new_signs/6.png "Traffic Sign 3"
+[image17]: ./new_signs/7.png "Traffic Sign 4"
+[image18]: ./new_signs/8.png "Traffic Sign 5"
+[image20]: ./output_26_0.png "Visualization"
+[image21]: ./output_26_1.png "Visualization"
+[image22]: ./output_26_2.png "Visualization"
+[image23]: ./output_26_3.png "Visualization"
+[image24]: ./output_26_4.png "Visualization"
+[image25]: ./output_26_5.png "Visualization"
+[image26]: ./output_26_6.png "Visualization"
+[image27]: ./output_26_7.png "Visualization"
 
 ## Rubric Points
 ### Here I will consider the [rubric points](https://review.udacity.com/#!/rubrics/481/view) individually and describe how I addressed each point in my implementation.  
@@ -106,60 +122,81 @@ My final model results were:
 
 If an iterative approach was chosen:
 * What was the first architecture that was tried and why was it chosen?
+
 The first model I choose is the LeNet from the lab of the course. It give a accuracy around 86%. This is choosen to have a runnable setup.
+
 * What were some problems with the initial architecture?
+
 The accuracy can't reach the 93% required by the project. Possibly this is due to that the size of the network is not deep enough.
+
 * How was the architecture adjusted and why was it adjusted? Typical adjustments could include choosing a different model architecture, adding or taking away layers (pooling, dropout, convolution, etc), using an activation function or changing the activation function. One common justification for adjusting an architecture would be due to overfitting or underfitting. A high accuracy on the training set but low accuracy on the validation set indicates over fitting; a low accuracy on both sets indicates under fitting.
 
 I tried first to increase the size of the layers on the original LeNet model, but I am not able to increase the accuracy rate at the validating set above 93%. So I refer to the paper "Traffic Sign Recognition with Multi-Scale Convolutional Networks" to adjust the structure of the network:
 feed the first convolution layer also to the third convolution layer
 increase the size of the layers
 add dropout layer to increase robustness and prevent overfit
-
-With this I saw an improvement of accuracy rate. Then I tried the test set and it works.
+With these modifications I saw an improvement of accuracy rate. Then I tried the test set and it works.
 
 * Which parameters were tuned? How were they adjusted and why?
+
 Layer size. I increased the size to see their effect on the accuracy.
+
 * What are some of the important design choices and why were they chosen? For example, why might a convolution layer work well with this problem? How might a dropout layer help with creating a successful model?
+
 Convolution layer is choosen for the spacital relation in the image is import. Also this will reduce the number of parameters. Dropout is added because this will increase the robustness and reduce the chance of overfit.
+
 If a well known architecture was chosen:
 * What architecture was chosen?
+
 The architecture from "Traffic Sign Recognition with Multi-Scale Convolutional Networks" is choosen.
+
 * Why did you believe it would be relevant to the traffic sign application?
+
 It is the same problem.
+
 * How does the final model's accuracy on the training, validation and test set provide evidence that the model is working well?
+
 The model has similar performance on the validation and test set, and I only test on the test set once (to prevent feedback manually the test set data to the model).
 
 ### Test a Model on New Images
 
 #### 1. Choose five German traffic signs found on the web and provide them in the report. For each image, discuss what quality or qualities might be difficult to classify.
 
-Here are five German traffic signs that I found on the web:
+Here are eight German traffic signs that I found on the web:
 
-![alt text][image4] ![alt text][image5] ![alt text][image6] 
-![alt text][image7] ![alt text][image8]
+![alt text][image11] ![alt text][image12] ![alt text][image13] 
+![alt text][image14] ![alt text][image15] ![alt text][image16]
+![alt text][image17] ![alt text][image18]
 
-The first image might be difficult to classify because ...
+These images might be difficult to recognize due to the low resolution of the images.
 
 #### 2. Discuss the model's predictions on these new traffic signs and compare the results to predicting on the test set. At a minimum, discuss what the predictions were, the accuracy on these new predictions, and compare the accuracy to the accuracy on the test set (OPTIONAL: Discuss the results in more detail as described in the "Stand Out Suggestions" part of the rubric).
 
-Here are the results of the prediction:
+Here are the results of the prediction, the left image is the input, and the right image is the preicated output
 
-| Image			        |     Prediction	        					| 
-|:---------------------:|:---------------------------------------------:| 
-| Stop Sign      		| Stop sign   									| 
-| U-turn     			| U-turn 										|
-| Yield					| Yield											|
-| 100 km/h	      		| Bumpy Road					 				|
-| Slippery Road			| Slippery Road      							|
+![alt text][image20]
 
+![alt text][image21]
 
-The model was able to correctly guess 4 of the 5 traffic signs, which gives an accuracy of 80%. This compares favorably to the accuracy on the test set of ...
+![alt text][image22] 
+
+![alt text][image23] 
+
+![alt text][image24] 
+
+![alt text][image25] 
+
+![alt text][image26] 
+
+![alt text][image27] 
+
+The model was able to correctly guess 8 of the 8 traffic signs, which gives an accuracy of 100%. This compares favorably to the accuracy on the new images. This is because relatively these images are in a better quality than some images from the test set. Also, I only use 10 training epoches, so the chance of overfit is smaller.
 
 #### 3. Describe how certain the model is when predicting on each of the five new images by looking at the softmax probabilities for each prediction. Provide the top 5 softmax probabilities for each image along with the sign type of each probability. (OPTIONAL: as described in the "Stand Out Suggestions" part of the rubric, visualizations can also be provided such as bar charts)
 
-The code for making predictions on my final model is located in the 11th cell of the Ipython notebook.
+The code for making predictions on my final model is in the python notebook.
 
+For all the input images, the model is pretty certain of the result (all big than 96%).
 For the first image, the model is relatively sure that this is a stop sign (probability of 0.6), and the image does contain a stop sign. The top five soft max probabilities were
 
 | Probability         	|     Prediction	        					| 
