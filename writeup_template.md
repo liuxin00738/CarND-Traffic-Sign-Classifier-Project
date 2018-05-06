@@ -117,8 +117,8 @@ Other hyper parameters include layer sizes. For the first and second convolution
 #### 4. Describe the approach taken for finding a solution and getting the validation set accuracy to be at least 0.93. Include in the discussion the results on the training, validation and test sets and where in the code these were calculated. Your approach may have been an iterative process, in which case, outline the steps you took to get to the final solution and why you chose those steps. Perhaps your solution involved an already well known implementation or architecture. In this case, discuss why you think the architecture is suitable for the current problem.
 
 My final model results were:
-* validation set accuracy of 9.25% 
-* test set accuracy of 94.4%
+* validation set accuracy of 95.6% 
+* test set accuracy of 94.3%
 
 If an iterative approach was chosen:
 * What was the first architecture that was tried and why was it chosen?
@@ -194,21 +194,8 @@ The model was able to correctly guess 8 of the 8 traffic signs, which gives an a
 
 #### 3. Describe how certain the model is when predicting on each of the five new images by looking at the softmax probabilities for each prediction. Provide the top 5 softmax probabilities for each image along with the sign type of each probability. (OPTIONAL: as described in the "Stand Out Suggestions" part of the rubric, visualizations can also be provided such as bar charts)
 
-The code for making predictions on my final model is in the python notebook.
+The code for making predictions on my final model is in the python notebook. The top 5 prediction result is given in the jupyter notebook. For all the input images, the model is pretty certain of the result (all with a probability bigger than 96%). This means the model is quite confidence of the output.
 
-For all the input images, the model is pretty certain of the result (all big than 96%).
-For the first image, the model is relatively sure that this is a stop sign (probability of 0.6), and the image does contain a stop sign. The top five soft max probabilities were
-
-| Probability         	|     Prediction	        					| 
-|:---------------------:|:---------------------------------------------:| 
-| .60         			| Stop sign   									| 
-| .20     				| U-turn 										|
-| .05					| Yield											|
-| .04	      			| Bumpy Road					 				|
-| .01				    | Slippery Road      							|
-
-
-For the second image ... 
 
 ### (Optional) Visualizing the Neural Network (See Step 4 of the Ipython notebook for more details)
 #### 1. Discuss the visual output of your trained network's feature maps. What characteristics did the neural network use to make classifications?
